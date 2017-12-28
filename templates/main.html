@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chronology</title>
+
+
+    <link rel="stylesheet" type="text/css" href="{% static "static/css/foundation.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "static/css/App.css" %}">
+</head>
+<body>
+
+    <div class="top-bar">
+        <section class="top-bar-right">
+            <ul class="menu">
+                {% if username %}
+                    <li><a type="button" class="button" href="/auth/logout/">Выйти ({{username}})</a></li>
+                {% else %}
+                     <li><a type="button" class="button" href="/auth/login/">Войти</a></li>
+                {% endif %}
+
+            </ul>
+        </section>
+
+    </div>
+    <h1> <a href="/">Хронология</a></h1>
+
+
+<div class="row">
+    {% block article %} {% endblock %}
+    {% block login %} {% endblock %}
+</div>
+  <script src="{% static "static/js/vendor/jquery.js}"></script>
+    <script src="{% static "static/js/vendor/what-input.js}"></script>
+    <script src="{% static "static/js/vendor/foundation.js}"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
